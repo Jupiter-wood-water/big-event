@@ -11,7 +11,7 @@ public class StateVlidation implements ConstraintValidator<State,String> {
      *
      * @param value 将来要校验的数据
      * @param constraintValidatorContext
-     * @return 如果返回false，则校验不通过，如果返回true，则校验通过。
+     * @return 如果返回false，则校验不通过，如果返回true，则校验通过。1
      */
     @Override
     public boolean isValid(String value, ConstraintValidatorContext constraintValidatorContext) {
