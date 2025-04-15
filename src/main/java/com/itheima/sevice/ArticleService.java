@@ -21,4 +21,23 @@ public interface ArticleService {
      * @return
      */
     PageBean<Article> list(Integer pageNum, Integer pageSize, String categoryId, String state);
+
+    /**
+     * 获取文章分类详情
+     * @param id
+     * @return
+     */
+    Article detail(Integer id);
+
+    /**
+     * 更新文章
+     * @param article
+     */
+    void update(Article article);
+
+    /**
+     * 删除文章
+     * @param id
+     */
+    void deleteById(Integer id);
 }

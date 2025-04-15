@@ -6,6 +6,7 @@ import com.itheima.pojo.Result;
 import com.itheima.sevice.ArticleService;
 import com.itheima.utils.JwtUtil;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -47,6 +48,39 @@ public class ArticleController {
     ){
         PageBean<Article> pg = articleService.list(pageNum,pageSize,categoryId,state);
         return Result.success(pg);
+    }
+
+    /**
+     * 获取文章分类详情
+     * @param id
+     * @return
+     */
+    @GetMapping("/detail")
+    public Result<Article> detail(Integer id){
+        Article article = articleService.detail(id);
+        return Result.success(article);
+    }
+
+    /**
+     * 更新文章
+     * @param article
+     * @return
+     */
+    @PutMapping
+    public Result update(@RequestBody @Validated Article article){
+        articleService.update(article);
+        return Result.success();
+    }
+
+    /**
+     * 删除文章
+     * @param id
+     * @return
+     */
+    @DeleteMapping
+    public Result delete(Integer id){
+        articleService.deleteById(id);
+        return Result.success();
     }
 
 }

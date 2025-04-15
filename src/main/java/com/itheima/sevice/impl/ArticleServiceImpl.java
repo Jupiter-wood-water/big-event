@@ -58,4 +58,33 @@ public class ArticleServiceImpl implements ArticleService {
 
         return pb;
     }
+
+    /**
+     * 获取文章详情
+     * @param id
+     * @return
+     */
+    @Override
+    public Article detail(Integer id) {
+        Article article = articleMapper.detail(id);
+        return article;
+    }
+
+    /**
+     * 更新文章
+     * @param article
+     */
+    @Override
+    public void update(Article article) {
+        articleMapper.update(article);
+    }
+
+    /**
+     * 删除文章
+     * @param id
+     */
+    @Override
+    public void deleteById(Integer id) {
+        articleMapper.deleteById(id);
+    }
 }
